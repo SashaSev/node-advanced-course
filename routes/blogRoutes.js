@@ -21,7 +21,7 @@ module.exports = app => {
         client.get = util.promisify(client.get);
 
 
-        const cachedBlogs = client.get(req.user.id);
+        const cachedBlogs =await client.get(req.user.id);
         if (cachedBlogs) {
             console.log("serving caching");
             return res.send(JSON.parse(cachedBlogs));
